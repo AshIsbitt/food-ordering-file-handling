@@ -72,32 +72,24 @@ def see_order():
 def rem_item():
     count = 0
     print("-----------")
-    print("Food order:")
+    food_rem = int(input("Enter the number of the item to remove: ")) - 1
+
 
     try:
         with open("order.txt", 'r') as file:
             food_order = file.readlines()
 
-            for item in food_order:
-                print(str(count + 1) + ". " + item.rstrip("\n"))
-                count += 1
-
-    except FileNotFoundError as e:
-        print("Nonexistent file")
-        print(e)
-
-    print("-------------")
-
-    food_rem = int(input("Enter the number of the item to remove: ")) - 1
-
-    try:
         with open("order.txt", 'w') as file:
+            food_order.pop(food_rem)
+
             for item in food_order:
-                if not item == food_order.index(item):
-                    file.write(item + "\n")
+                file.write(item + "\n")
+
     except FileNotFoundError as e:
         print("Nonexistent file")
         print(e)
+
+
 
     finally:
         print("-------------")
