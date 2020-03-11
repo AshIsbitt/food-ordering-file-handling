@@ -7,7 +7,7 @@ As a user, I should be able to store to create different orders
 As a user, I should be able to read back the order to my client
 ```
 
-**Acceptance criteria**
+"Acceptance criteria"
 - It should be well formatted
 - It should be numbered
 
@@ -16,14 +16,13 @@ Example:
 1 - Nachos
 2 - Coke
 ```
-```
+```python
 As user, if i tried to read a order that doesn't exist, it should give me an error
 As a user, I should be able to amend my order
 
 ```
 
-
-#### DOD
+>> DOD
 - Its own project
 - Git and GitHub
 - Functional
