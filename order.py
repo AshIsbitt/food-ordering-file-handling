@@ -24,9 +24,9 @@ def switchboard():
         elif entry == 1:
             add_food_item()
         elif entry == 2:
-            see_order()
+            print(see_order())
         elif entry == 3:
-            pass
+            rem_item()
         else:
             print("Invalid Entry")
 
@@ -61,10 +61,46 @@ def see_order():
             for item in food_order:
                 print(str(count + 1) + ". " + item.rstrip("\n"))
                 count += 1
+
     except FileNotFoundError as e:
         print("Nonexistent file")
         print(e)
 
     print("-------------")
+
+
+def rem_item():
+    count = 0
+    print("-----------")
+    print("Food order:")
+
+    try:
+        with open("order.txt", 'r') as file:
+            food_order = file.readlines()
+
+            for item in food_order:
+                print(str(count + 1) + ". " + item.rstrip("\n"))
+                count += 1
+
+    except FileNotFoundError as e:
+        print("Nonexistent file")
+        print(e)
+
+    print("-------------")
+
+    food_rem = int(input("Enter the number of the item to remove: ")) - 1
+
+    try:
+        with open("order.txt", 'w') as file:
+            for item in food_order:
+                if not item == food_order.index(item):
+                    file.write(item + "\n")
+    except FileNotFoundError as e:
+        print("Nonexistent file")
+        print(e)
+
+    finally:
+        print("-------------")
+
 
 switchboard()
