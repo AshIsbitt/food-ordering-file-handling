@@ -16,7 +16,7 @@ Example:
 1 - Nachos
 2 - Coke
 ```
-```python
+```
 As user, if i tried to read a order that doesn't exist, it should give me an error
 As a user, I should be able to amend my order
 
