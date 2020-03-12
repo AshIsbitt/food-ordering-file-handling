@@ -1,5 +1,9 @@
 import os
 
+from newuser import *
+
+file_objects = []
+
 if os.path.exists("order2.txt"):
     os.remove("order2.txt")
 
@@ -15,6 +19,9 @@ try:
         rl = file.readlines()
 
         for item in rl:
-            print(item.rstrip("\n"))
+            obj = NewUser(item.rstrip("\n"))
+            file_objects.append(obj)
+            print(file_objects[-1].get_name())
+
 except FileNotFoundError:
     print("No file")
